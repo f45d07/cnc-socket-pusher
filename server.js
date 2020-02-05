@@ -41,12 +41,30 @@ webSocketServer.on('connection', function (ws, incoming_request) {
 
 function SendToDashboard(client_id) {
     if(clients[client_id] !== undefined) clients[client_id].socket.send(JSON.stringify({
-        machine: {
-            online: true,
-            one: Math.random(),
-            two: Math.random(),
-            three: Math.random()
-        }
+        machine:
+        [
+            {
+                title: '1111',
+                params: [
+                    { one: Math.random() }
+                ]
+            },
+            {
+                title: '2222',
+                params: [
+                    { one: Math.random() },
+                    { two: Math.random() },
+                    { three: Math.random() }
+                ]
+            },
+            {
+                title: '3333',
+                params: [
+                    { one: Math.random() },
+                    { two: Math.random() }
+                ]
+            }
+        ]
     }));
     return true;
 }
